@@ -1,1 +1,11 @@
 test
+
+
+モザイクIDのとり方
+/home/yggd/test/accesstestcode.js
+
+
+アクセストークンを取る
+タムタムDBからフェッチする
+ブロックチェーンに接続する（2回）
+バックエンドDBに書き込む

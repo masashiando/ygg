@@ -17,7 +17,7 @@
  *
  */
 
-exports.getInfoFromMosaic = function(accountid,mosaicHEX){
+exports.getMosaicFromId = function(accountid){
 
 const symbol_sdk_1 = require("/usr/local/lib/node_modules/nem2-sdk");
 
@@ -31,7 +31,17 @@ const address = symbol_sdk_1.Address.createFromRawAddress(rawAddress);
 const nodeUrl = 'http://api-2-01.us-west-1.symboldev.network:3000';
 const repositoryFactory = new symbol_sdk_1.RepositoryFactoryHttp(nodeUrl);
 const accountHttp = repositoryFactory.createAccountRepository();
-accountHttp
-    .getAccountInfo(address)
-    .subscribe((accountInfo) => console.log(accountInfo), (err) => console.error(err));
+
+accountHttp.getAccountInfo(address).subscribe(
+        function(accountInfo){
+                //console.log(accountInfo.address.address);
+                //var mosaic0 = accountInfo.mosaics[0];
+                //var mosaicId = mosaic0.id.id;
+                //console.log(mosaicId);
+                return accountInfo.mosaics;
+});
+
+//accountHttp
+//    .getAccountInfo(address)
+//    .subscribe((accountInfo) => console.log(accountInfo), (err) => console.error(err));
 /* end block 01 */
